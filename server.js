@@ -14,6 +14,11 @@ const Schema = mongoose.Schema;
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 var quote = new Schema({
     quote: String,
@@ -22,7 +27,6 @@ var quote = new Schema({
 
 var Quotes = mongoose.model('novatics-quotes', quote);
 
-
 // An access token (from your Slack app or custom integration - xoxp, xoxb)
 const token = process.env.SLACK_TOKEN;
 
@@ -30,12 +34,11 @@ const web = new WebClient(token);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/public/index.html'));
 })
 
-
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendfile(path.join(__dirname = 'client/build/index.html'));
 })
 
@@ -72,32 +75,18 @@ app.post('/', (req, res) => {
     res.send('Your new Quote: ' + item.quote + '\nautor: ' + item.auth);
 
 })
+
+
+app.get('/get-quotes', async (req, res) => {
+    Quotes.find()  
+    .then(function(quotes) {  
+        res.json(quotes);  
+    });
+});
+
+
 //Start server
-app.listen(port, (req, res) => {
+app.listen(port, (req, res) => {    
     console.log(`server listening on port: ${port}`)
     console.log(process.env.SLACK_TOKEN);
 });
-
-app.get('/', async (req, res) => {
-    // var response;
-    // try {
-    //     response = await web.users;
-    // } catch (error) {
-    //     // Check the code property, and when its a PlatformError, log the whole response.
-    //     if (error.code === ErrorCode.PlatformError) {
-    //         console.log(error.data);
-    //     } else {
-    //         // Some other error, oh no!
-    //         console.log('Well, that was unexpected.' + error);
-    //     }
-    // }
-    // if (response) {
-
-    //     console.log('Message sent: ', response.identity);
-    // }
-    // res.send('teste' + response.info);
-})
-// Quotes.findById("5cb5ee91e7179a264cf184ca", function (err, myQuote) {
-    //     console.log(myQuote);
-        //     res.send('Quote: ' + myQuote.quote + '\nautor: ' + myQuote.auth);
-        // });
