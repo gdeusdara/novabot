@@ -1,16 +1,21 @@
+
+body {
+  background-color: #e8e8e9;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #35383c;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,5 +34,67 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 30px;
+}
+
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.05), -5px -5px 30px 7px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #fff;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.05), 
+    -5px -5px 30px 15px rgba(0,0,0,0.05);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
   }
 }

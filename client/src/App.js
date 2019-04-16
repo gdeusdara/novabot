@@ -30,10 +30,12 @@ class App extends Component {
     const { quotes, isLoading } = this.state;
     console.log('opa' + quotes);
     const listItems = quotes.map((item) =>
-      <li key={item._id}>
-        quote: {item.quote} auth: {item.auth}
-      </li>
-
+      <div className="card">
+        <div className="card_image"> {item.quote} </div>
+        <div className="card_title">
+          <p>{item.auth}</p>
+        </div>
+      </div>
     );
     if (isLoading) {
       return (<p>Loading ...</p>);
@@ -41,13 +43,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Novativs Quotes!
           </p>
-
-          <ul>{listItems}</ul>
         </header>
+        <div class="cards-list">
+          {listItems}
+        </div>
       </div>
     );
   }
