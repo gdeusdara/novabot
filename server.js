@@ -34,18 +34,20 @@ app.post('/', (req, res) => {
         quote: newQuote[0],  
         auth: newQuote[1],  
     };  
-       
+    var data = new Quotes(item);  
+    data.save();
+
 } else {
     var item = {  
         quote: req.body.text,  
         auth: 'sem autor',  
     };
-}
-
     var data = new Quotes(item);  
     data.save();
-    
-    res.send('Your new Quote: ' + item.quote + '\nautor: ' + item.auth);
+
+}
+
+res.send('Your new Quote: ' + item.quote + '\nautor: ' + item.auth);
     
 })
 //Start server
