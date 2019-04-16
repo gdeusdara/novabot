@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/get-quotes')
+    fetch('https://novabot-123.herokuapp.com/get-quotes')
       .then(response => response.json())
       .then(data => {
         console.table(data);
