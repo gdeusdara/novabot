@@ -1,0 +1,24 @@
+{
+  "name": "novabot",
+  "version": "1.0.0",
+  "description": "desafio na Novatics",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdeusdara/novabot.git"
+  },
+  "author": "gdeusdara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdeusdara/novabot/issues"
+  },
+  "homepage": "https://github.com/gdeusdara/novabot#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11"
+  }
+}
