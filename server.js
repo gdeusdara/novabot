@@ -3,9 +3,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //Route setup
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
   
-  res.send('root route');
+  res.send('Seu quote será salvo em breve');
 })
 //Start server
 app.listen(port, (req, res) => {
