@@ -30,7 +30,7 @@ class App extends Component {
     const { quotes, isLoading } = this.state;
     console.log('opa' + quotes);
     const listItems = quotes.map((item) =>
-      <div className="card">
+      <div className="card" key={item._id}>
         <div className="card_image"> {item.quote} </div>
         <div className="card_title">
           <p>{item.auth}</p>
@@ -47,8 +47,10 @@ class App extends Component {
             Novativs Quotes!
           </p>
         </header>
-        <div class="cards-list">
-          {listItems}
+        <div className="quotes-body">
+          <div className="cards-list">
+            {listItems}
+          </div>
         </div>
       </div>
     );

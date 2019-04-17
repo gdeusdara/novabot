@@ -37,17 +37,21 @@ body {
   }
 }
 
+.quotes-body {
+  padding: 100px;
+}
+
 .cards-list {
   z-index: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  padding-top: 30px;
+  align-items: center;
 }
 
 .card {
-  margin: 30px auto;
+  margin: 10px;
   width: 300px;
   height: 300px;
 box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.05), -5px -5px 30px 7px rgba(0,0,0,0.05);
