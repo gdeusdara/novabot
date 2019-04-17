@@ -32,8 +32,8 @@ class App extends Component {
     var lastItem = quotes.pop()
     var listItems = quotes.reverse().map((item) =>
       <div className="card" key={item._id}>
-        <div className="card_image"> {item.quote} </div>
-        <div className="card_title">
+        <div className="card_quote"> {item.quote} </div>
+        <div className="card_auth">
           <p>{item.auth}</p>
         </div>
       </div>
@@ -44,9 +44,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>Last Quote</p>
+          <p className="Header-help Header-help-top ">Last Quote</p>
           <p className="Header-quote">{lastItem.quote}</p>
-          <p>{lastItem.auth}</p>
+          <p className="Header-help">{lastItem.auth}</p>
         </header>
         <div className="quotes-body">
           <div className="cards-list">

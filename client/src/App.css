@@ -2,6 +2,8 @@
 body {
   background-color: #e8e8e9;
   font-family: 'Montserrat';
+  color: #4f4f57;
+  font-stretch: 100%;
 }
 
 .App {
@@ -16,13 +18,13 @@ body {
 
 .App-header {
   background-color: #35383c;
-  min-height: 35vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #e8e8e9;
-  padding: 50px;
+  padding: 0px 165px;
 }
 
 .Header-quote {
@@ -30,6 +32,14 @@ body {
   font-family: 'Montserrat';
   margin-bottom: 10px;
   margin-top: 0px;
+}
+
+.Header-help {
+  color: #abaeb6;
+}
+
+.Header-help-top {
+  font-size: 13px
 }
 
 .App-link {
@@ -62,38 +72,43 @@ body {
   margin: 10px;
   width: 300px;
   height: 300px;
-box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.05), -5px -5px 30px 7px rgba(0,0,0,0.05);
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.03), -5px -5px 30px 7px rgba(0,0,0,0.03);
   cursor: pointer;
   transition: 0.4s;
   background-color: #fff;
 }
 
-.card .card_image {
-  width: inherit;
+.card .card_quote {
   height: inherit;
   border-radius: 40px;
+  margin: 20px;
+  text-align: initial;
+  font-size: 25px;
 }
 
-.card .card_image img {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
+
+img {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
   object-fit: cover;
 }
 
-.card .card_title {
-  text-align: center;
+.card .card_auth {
+  text-align: initial;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 30px;
-  margin-top: -80px;
+  font-size: 13px;
+  margin-top: -70px;
+  margin-left: 20px;
   height: 40px;
+  color: #abaeb6;
 }
 
 .card:hover {
   transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.05), 
-    -5px -5px 30px 15px rgba(0,0,0,0.05);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.03), 
+    -5px -5px 30px 15px rgba(0,0,0,0.03);
 }
 
 .title-white {
