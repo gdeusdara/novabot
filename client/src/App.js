@@ -29,7 +29,8 @@ class App extends Component {
   render() {
     const { quotes, isLoading } = this.state;
     console.log('opa' + quotes);
-    const listItems = quotes.map((item) =>
+    var lastItem = quotes.pop()
+    var listItems = quotes.reverse().map((item) =>
       <div className="card" key={item._id}>
         <div className="card_image"> {item.quote} </div>
         <div className="card_title">
@@ -43,9 +44,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            Novativs Quotes!
-          </p>
+          <p>Last Quote</p>
+          <p className="Header-quote">{lastItem.quote}</p>
+          <p>{lastItem.auth}</p>
         </header>
         <div className="quotes-body">
           <div className="cards-list">
