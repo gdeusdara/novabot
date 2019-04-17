@@ -24,7 +24,7 @@ body {
   align-items: center;
   justify-content: center;
   color: #e8e8e9;
-  padding: 0px 165px;
+  padding: 0px 300px;
 }
 
 .Header-quote {
@@ -56,7 +56,7 @@ body {
 }
 
 .quotes-body {
-  padding: 100px;
+  padding: 100px 200px;
 }
 
 .cards-list {
@@ -119,9 +119,19 @@ img {
   color: black;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 1000px) {
+
+  .App-header {
+    padding: 0px 10px;
+  }
+
+  .quotes-body {
+    padding: 30px 10px;
+  }
+}
+
+@media all and (max-width: 600px) {
   .card-list {
-    /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
   }
 }
