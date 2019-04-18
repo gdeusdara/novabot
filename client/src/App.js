@@ -51,7 +51,7 @@ class App extends Component {
           <img className="logo" src={logo}/>
         </div>
         <header className="App-header">
-          <p className="Header-help Header-help-top ">Last Quote</p>
+          <p className="Header-help Header-help-top ">Quote of the Day</p>
           <p className="Header-quote">{lastItem.quote}</p>
           <p className="Header-help">
             <img className="profile-picture" src={lastItem.profile_image ? lastItem.profile_image : default_image}/>
