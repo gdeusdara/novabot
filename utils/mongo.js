@@ -10,7 +10,9 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 var quote = new Schema({
     quote: String,
-    auth: String
+    auth: String,
+    sent_by: String,
+    profile_image: String,
 });
 
 var Quotes = mongoose.model('novatics-quotes', quote);
