@@ -11,7 +11,7 @@ body {
 }
 
 .App-nav {
-  margin-bottom: -66px;
+  margin-bottom: -80px;
   justify-content: flex-start;
   align-items: center;
   text-align: initial;
@@ -144,5 +144,11 @@ body {
 @media all and (max-width: 600px) {
   .card-list {
     flex-direction: column;
+  }
+
+  .logo {
+    width: 30%;
+    height: auto;
+    opacity: 0.2;
   }
 }

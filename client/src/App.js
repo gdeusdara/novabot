@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './assets/Novatics.png';
+import default_image from './assets/default.png';
 import './App.css';
 
 class App extends Component {
@@ -35,7 +36,7 @@ class App extends Component {
         <div className="card_quote"> {item.quote} </div>
         <div className="card_auth">
           <p className="profile">
-            <img className="profile-picture" src="https://secure.gravatar.com/avatar/72cb0061f2b38a8a8ad09c710d5e2877.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F00b63%2Fimg%2Favatars%2Fava_0008-72.png"/>
+            <img className="profile-picture" src={item.profile_image ? item.profile_image : default_image}/>
             {item.auth}
           </p>
         </div>
@@ -53,7 +54,7 @@ class App extends Component {
           <p className="Header-help Header-help-top ">Last Quote</p>
           <p className="Header-quote">{lastItem.quote}</p>
           <p className="Header-help">
-            <img className="profile-picture" src="https://secure.gravatar.com/avatar/72cb0061f2b38a8a8ad09c710d5e2877.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2F00b63%2Fimg%2Favatars%2Fava_0008-72.png"></img>
+            <img className="profile-picture" src={lastItem.profile_image ? lastItem.profile_image : default_image}/>
             {lastItem.auth}
           </p>
         </header>

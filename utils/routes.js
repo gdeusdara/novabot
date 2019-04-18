@@ -12,45 +12,60 @@ const web = new WebClient(token);
 //Create quote
 router.post('/', async (req, res) => {
     console.log(req.body);
-    
+
     if (req.body.text === '') {
 
         res.send('Você não mandou nenhum quote! ):');
 
     } else {
 
-        var response_user = await web.users.profile.get({ user: req.body.user_id });
-        var sent_by = response_user.profile.real_name;
-        var profile_image = response_user.profile.image_72;
-
         if (req.body.text.includes(' by: ')) {
-
-            var newQuote = req.body.text.split(" by: ");
+            let newQuote = req.body.text.split(" by: ");
 
             console.log(newQuote);
 
-            var item = {
+
+            let users_list = await web.users.list();
+            let at = new RegExp('@');
+
+            let auth = users_list.members.find((member) => {
+                return member.name == newQuote[1].replace(at, '');
+            });
+
+            let item = {
                 quote: newQuote[0],
-                auth: newQuote[1],
-                sent_by: sent_by,
-                profile_image: profile_image,
             };
-            var data = new Quotes(item);
+
+            if (auth) {
+                item.auth = auth.name;
+                item.profile_image = auth.profile.image_72;
+            } else {
+                item.auth = newQuote[1];
+                item.profile_image = '';
+            }
+
+            let data = new Quotes(item);
             data.save();
+
+            res.send('Your new Quote: ' + item.quote + '\nautor: ' + item.auth);
 
         } else {
-            var item = {
+
+            let response_user = await web.users.profile.get({ user: req.body.user_id });
+            let auth = response_user.profile.real_name;
+            let profile_image = response_user.profile.image_72;
+
+            let item = {
                 quote: req.body.text,
-                auth: 'Desconhecido',
-                sent_by: sent_by,
+                auth: auth,
                 profile_image: profile_image,
             };
-            var data = new Quotes(item);
+            let data = new Quotes(item);
             data.save();
 
+            res.send('Your new Quote: ' + item.quote + '\nautor: ' + item.auth);
         }
 
-        res.send('Your new Quote: ' + item.quote + '\nautor: ' + item.auth);
     }
 
 })
