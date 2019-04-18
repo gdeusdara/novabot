@@ -39,6 +39,9 @@ body {
 
 .Header-help {
   color: #abaeb6;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
 }
 
 .Header-help-top {
@@ -95,17 +98,25 @@ img {
   height: 40px;
   border-radius: 20px;
   object-fit: cover;
+  margin-right: 8px;
 }
 
 .card .card_auth {
   text-align: initial;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 13px;
-  margin-top: -70px;
+  font-size: 14px;
+  margin-top: -110px;
   margin-left: 20px;
   height: 40px;
   color: #abaeb6;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile {
+  align-items: center;
+  display: inline-flex;  
 }
 
 .card:hover {
