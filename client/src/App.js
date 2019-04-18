@@ -43,6 +43,7 @@ class App extends Component {
     }
     return (
       <div className="App">
+        <div className="App-nav">Novabot</div>
         <header className="App-header">
           <p className="Header-help Header-help-top ">Last Quote</p>
           <p className="Header-quote">{lastItem.quote}</p>
