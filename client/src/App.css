@@ -45,20 +45,18 @@ body {
 }
 
 .Header-help-top {
-  font-size: 13px
+  font-size: 13px;
+  text-transform: uppercase;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  width: 8%;
+  height: auto;
+  opacity: 0.2;
 }
 
 .quotes-body {
@@ -92,15 +90,6 @@ body {
   font-size: 25px;
 }
 
-
-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  object-fit: cover;
-  margin-right: 8px;
-}
-
 .card .card_auth {
   text-align: initial;
   font-family: sans-serif;
@@ -117,6 +106,14 @@ img {
 .profile {
   align-items: center;
   display: inline-flex;  
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-right: 8px;
 }
 
 .card:hover {
