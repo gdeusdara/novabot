@@ -1,10 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const Quotes = require('./mongo');
+const { WebClient, ErrorCode } = require('@slack/web-api');
+const env = require('dotenv');
+
+env.config();
+
+const token = process.env.SLACK_TOKEN;
+const web = new WebClient(token);
 
 //Create quote
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     console.log(req.body);
+
+    var user_id = req.body.user_id;
+    var response_user = await web.users.profile.get({user: user_id, token: process.env.SLACK_TOKEN});
+    res.send(response_user);    
+
     if (req.body.text === '') {
 
         res.send('Você não mandou nenhum quote! ):');
